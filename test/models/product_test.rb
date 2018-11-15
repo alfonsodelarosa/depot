@@ -7,7 +7,7 @@ class ProductTest < ActiveSupport::TestCase
 
   def new_product(image_url)
 
-    Product.new(title:"...",
+    Product.new(title:"...............",
                 description:"...",
                 price:1,
                 image_url: image_url)
@@ -23,16 +23,16 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "product must be a positive price" do
-    product = Product.new(title: "...",
+    product = Product.new(title: "...............",
                           description: "...",
                           image_url: "ruby.jpg")
     product.price=-1
     assert product.invalid?
-    assert_equal ["must be greater than or equal to 0.01"], product.errors[:price]
+    assert_equal ["must be a positive number"], product.errors[:price]
 
     product.price=0
     assert product.invalid?
-    assert_equal ["must be greater than or equal to 0.01"], product.errors[:price]
+    assert_equal ["must be a positive number"], product.errors[:price]
 
     product.price=1
     assert product.valid?
