@@ -15,7 +15,8 @@ class Product < ApplicationRecord
     def ensure_not_referenced_by_any_line_item
       unless line_items.empty?
         errors.add(:base, "Line items present")
-        throw abort
+        puts "Entramos ensure_not_referenced_by_any_line_item"
+        throw :abort
       end
     end
 end
