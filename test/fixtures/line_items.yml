@@ -8,7 +8,7 @@ one:
 
 two:
   product: one
-  cart: two
+  order: one
   price: 9.99
   quantity: 1
 
