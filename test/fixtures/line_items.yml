@@ -4,8 +4,16 @@ one:
   product: ruby
   cart: two
   price: 49.50
+  quantity: 1
 
 two:
   product: one
   cart: two
   price: 9.99
+  quantity: 1
+
+three:
+  product: one
+  cart: two
+  price: 9.99
+  quantity: 1

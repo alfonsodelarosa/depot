@@ -2,7 +2,6 @@ class Cart < ApplicationRecord
   has_many :line_items, dependent: :destroy
 
   def add_product(product)
-
     current_item=line_items.find_by(product_id: product.id)
 
     if current_item
@@ -14,6 +13,19 @@ class Cart < ApplicationRecord
     current_item.price=product.price
     current_item
 
+  end
+
+  def remove_product(product)
+
+    current_item=line_items.find_by(product_id: product.id)
+
+    if current_item.quantity > 1
+      current_item.quantity-=1
+      current_item.save!
+    else
+      current_item=current_item.destroy
+    end
+    current_item
   end
 
   def total_price
